@@ -11,19 +11,19 @@
   :root{
     --bg:#f5f7fa;--surface:#fff;--surface-2:#eef2f7;--ink:#0f1b2d;--muted:#5a6b80;--faint:#8697aa;
     --border:#e1e7ef;--border-strong:#cdd7e3;--accent:#0e7c86;--accent-ink:#fff;--accent-soft:#d5eef0;
-    --remote:#0e9f6e;--warn:#c2760a;--shadow:0 1px 2px rgba(16,27,45,.06),0 8px 24px rgba(16,27,45,.06);
+    --shadow:0 1px 2px rgba(16,27,45,.06),0 8px 24px rgba(16,27,45,.06);
     --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;--body:'Inter',system-ui,sans-serif;--display:'Bricolage Grotesque',var(--body);
     color-scheme:light dark;
   }
   @media (prefers-color-scheme:dark){:root:not([data-theme=light]){
     --bg:#0b1220;--surface:#111a29;--surface-2:#0e1622;--ink:#e8eef6;--muted:#93a4b8;--faint:#63768c;
     --border:#20303f;--border-strong:#2c4055;--accent:#2dd4bf;--accent-ink:#04211f;--accent-soft:#0f2f30;
-    --remote:#34d399;--warn:#f0b429;--shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
   }}
   :root[data-theme=dark]{
     --bg:#0b1220;--surface:#111a29;--surface-2:#0e1622;--ink:#e8eef6;--muted:#93a4b8;--faint:#63768c;
     --border:#20303f;--border-strong:#2c4055;--accent:#2dd4bf;--accent-ink:#04211f;--accent-soft:#0f2f30;
-    --remote:#34d399;--warn:#f0b429;--shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
   }
   *{box-sizing:border-box}
   html,body{margin:0}
@@ -39,13 +39,8 @@
   .tagline{color:var(--muted);font-size:12.5px}.spacer{flex:1}
   .btnsm{background:var(--surface);border:1px solid var(--border);color:var(--muted);border-radius:9px;padding:7px 11px;font-size:12.5px;cursor:pointer;font-family:var(--body)}
   .btnsm:hover{border-color:var(--border-strong);color:var(--ink)}
-  #userBox{font-size:12.5px;color:var(--muted);display:flex;align-items:center;gap:8px}
 
-  .tabs{display:flex;gap:6px;margin:16px 0 4px}
-  .tab{font-family:var(--display);font-weight:700;font-size:14px;padding:9px 14px;border-radius:10px;border:1px solid var(--border);background:var(--surface);color:var(--muted);cursor:pointer}
-  .tab[aria-selected=true]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
-
-  .layout{display:grid;grid-template-columns:360px 1fr;gap:20px;align-items:start;padding:12px 0 56px}
+  .layout{display:grid;grid-template-columns:360px 1fr;gap:20px;align-items:start;padding:16px 0 56px}
   @media (max-width:880px){.layout{grid-template-columns:1fr}}
   .panel{background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow)}
   aside.panel{position:sticky;top:70px}
@@ -55,9 +50,8 @@
   .sub{color:var(--muted);font-size:12px;margin:0 0 14px}
   .field{margin-bottom:15px}
   label.lbl{display:block;font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--faint);margin-bottom:7px}
-  input[type=text],select,textarea{width:100%;font-family:var(--body);font-size:14px;color:var(--ink);background:var(--surface-2);border:1px solid var(--border);border-radius:9px;padding:9px 11px}
-  textarea{resize:vertical;min-height:120px;line-height:1.45;font-size:13px}
-  input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
+  input[type=text],select{width:100%;font-family:var(--body);font-size:14px;color:var(--ink);background:var(--surface-2);border:1px solid var(--border);border-radius:9px;padding:9px 11px}
+  input:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
   .seg{display:flex;background:var(--surface-2);border:1px solid var(--border);border-radius:9px;padding:3px;gap:3px}
   .seg button{flex:1;border:0;background:transparent;color:var(--muted);font:500 12.5px var(--body);padding:7px 6px;border-radius:6px;cursor:pointer}
   .seg button[aria-pressed=true]{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(16,27,45,.12);font-weight:600}
@@ -69,175 +63,101 @@
   .flag{flex:1;min-width:70px;border:1px solid var(--border-strong);background:var(--surface);border-radius:9px;padding:9px 6px;cursor:pointer;text-align:center;font-size:12.5px;color:var(--muted);font-weight:500}
   .flag[aria-pressed=true]{border-color:var(--accent);color:var(--ink);background:var(--accent-soft)}
   .flag .em{display:block;font-size:16px;margin-bottom:2px}
+  .tagbox{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}.tagbox:empty{margin-bottom:0}
+  .loctag{display:inline-flex;align-items:center;gap:6px;background:var(--accent-soft);color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 35%,var(--border));border-radius:999px;padding:4px 6px 4px 11px;font-size:12.5px;font-weight:600}
+  .loctag button{border:0;background:color-mix(in srgb,var(--accent) 20%,transparent);color:var(--accent);width:16px;height:16px;border-radius:50%;cursor:pointer;font-size:12px;line-height:1;display:flex;align-items:center;justify-content:center;padding:0}
+  .loctag button:hover{background:var(--accent);color:var(--accent-ink)}
   .gen{width:100%;margin-top:4px;background:var(--accent);color:var(--accent-ink);border:0;border-radius:11px;padding:13px;font:700 15px var(--display);cursor:pointer;letter-spacing:-.01em}
   .gen:hover{filter:brightness(1.06)}
+  .mini{background:transparent;border:0;color:var(--accent);font-size:12px;cursor:pointer;font-family:var(--body);padding:0;margin-top:9px;text-decoration:underline;text-underline-offset:2px}
 
   .rhead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:2px 0 6px;flex-wrap:wrap}
   .rhead h1{font-family:var(--display);font-weight:800;font-size:22px;margin:0;letter-spacing:-.02em}
   .count{font-size:12.5px;color:var(--muted);font-family:var(--mono)}
-  .feedmeta{font-size:11.5px;color:var(--faint);margin-bottom:14px;font-family:var(--mono)}
-
-  .job{background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:15px 16px;margin-bottom:11px;display:flex;gap:14px;align-items:flex-start}
-  .job .body{flex:1;min-width:0}
-  .job .jt{font-family:var(--display);font-weight:700;font-size:16px;margin:0 0 2px;letter-spacing:-.01em}
-  .job .co{font-size:13px;color:var(--muted);margin-bottom:8px}
-  .job .co b{color:var(--ink);font-weight:600}
-  .meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:2px}
-  .tagx{font-size:11px;padding:3px 8px;border-radius:6px;background:var(--surface-2);color:var(--muted);font-family:var(--mono)}
-  .tagx.rem{background:color-mix(in srgb,var(--remote) 15%,transparent);color:var(--remote)}
-  .tagx.src{background:var(--accent-soft);color:var(--accent)}
-  .why{font-size:11.5px;color:var(--remote);margin-top:7px}
-  .apply{flex:none;align-self:center}
-  .apply a{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:600;font-size:13px;border-radius:9px;padding:9px 14px;white-space:nowrap}
-  .apply a:hover{filter:brightness(1.06)}
-  .score{font-family:var(--mono);font-size:11px;color:var(--faint);text-align:center;margin-top:4px}
-  .empty{border:1px dashed var(--border-strong);border-radius:14px;padding:34px 20px;text-align:center;color:var(--muted);font-size:13.5px}
-
-  /* launcher */
+  .lead{color:var(--muted);font-size:13px;margin:0 0 14px;max-width:60ch}
+  .plat-toggles{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+  .ptog{font-size:11.5px;padding:5px 9px;border-radius:7px;border:1px solid var(--border);background:var(--surface);color:var(--muted);cursor:pointer;font-family:var(--body)}
+  .ptog[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
   .qcard{background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:15px 16px;margin-bottom:12px}
   .qtop{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:11px}
-  .qterm{font-family:var(--mono);font-size:14px}
+  .qterm{font-family:var(--mono);font-size:14px;font-weight:500;word-break:break-word}
   .qlinks{display:flex;flex-wrap:wrap;gap:7px}
-  .qlink{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:500;text-decoration:none;color:var(--ink);background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:7px 11px}
+  .qlink{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:500;text-decoration:none;color:var(--ink);background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:7px 11px;cursor:pointer}
   .qlink:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
-  .qlink .sq{width:7px;height:7px;border-radius:2px}
-
-  /* resume */
-  .resgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  @media (max-width:880px){.resgrid{grid-template-columns:1fr}}
-  .rprev{background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:20px 22px;min-height:200px}
-  .rprev h3{font-family:var(--display);font-size:20px;margin:0 0 2px;color:var(--accent)}
-  .rprev .rmeta{font-size:12px;color:var(--muted);margin-bottom:12px}
-  .rprev h4{font-family:var(--display);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:3px;margin:14px 0 6px}
-  .rprev p,.rprev li{font-size:12.5px;line-height:1.5}
-  .rprev ul{margin:4px 0;padding-left:18px}
-  .dlrow{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
-  .banner{background:var(--accent-soft);border:1px solid color-mix(in srgb,var(--accent) 30%,var(--border));border-radius:12px;padding:12px 14px;margin:16px 0;font-size:13px;display:flex;gap:10px}
-  .note{font-size:12px;color:var(--warn);margin-top:8px}
-  .tagbox{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
-  .tagbox:empty{margin-bottom:0}
-  .loctag{display:inline-flex;align-items:center;gap:6px;background:var(--accent-soft);color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 35%,var(--border));border-radius:999px;padding:4px 6px 4px 11px;font-size:12.5px;font-weight:600}
-  .loctag button{border:0;background:color-mix(in srgb,var(--accent) 20%,transparent);color:var(--accent);width:16px;height:16px;border-radius:50%;cursor:pointer;font-size:12px;line-height:1;display:flex;align-items:center;justify-content:center;padding:0}
-  .loctag button:hover{background:var(--accent);color:var(--accent-ink)}
-  .drop{display:flex;align-items:center;justify-content:center;text-align:center;min-height:74px;padding:14px;border:1.5px dashed var(--border-strong);border-radius:11px;background:var(--surface-2);color:var(--muted);font-size:12.5px;cursor:pointer;transition:.15s}
-  .drop:hover,.drop.over{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
-  .drop.ok{border-style:solid;border-color:var(--remote);color:var(--remote)}
+  .qlink .sq{width:7px;height:7px;border-radius:2px;flex:none}
+  .openall{margin-left:auto;font-size:12px;color:var(--muted);background:transparent;border:1px dashed var(--border-strong);border-radius:8px;padding:7px 11px;cursor:pointer;font-family:var(--body)}
+  .openall:hover{color:var(--ink);border-color:var(--accent)}
+  .empty{border:1px dashed var(--border-strong);border-radius:14px;padding:34px 20px;text-align:center;color:var(--muted);font-size:13.5px}
   footer{color:var(--faint);font-size:11.5px;text-align:center;padding:22px 0 40px}
 </style>
 </head>
 <body>
 <header class="top"><div class="wrap">
   <div class="brand"><span class="dot"></span>Job Radar</div>
-  <span class="tagline">find it · fix the resume · apply</span>
+  <span class="tagline">one profile → filtered searches, everywhere</span>
   <span class="spacer"></span>
-  <span id="userBox"></span>
-  <button class="btnsm" id="themeBtn" type="button">◐</button>
+  <button class="btnsm" id="themeBtn" type="button">◐ Theme</button>
 </div></header>
 
 <div class="wrap">
-  <div class="tabs" role="tablist">
-    <button class="tab" role="tab" data-view="matches" aria-selected="true">Live matches</button>
-    <button class="tab" role="tab" data-view="launch" aria-selected="false">Search everywhere</button>
-  </div>
-
   <div class="layout">
     <aside class="panel"><div class="pb">
-      <h2>Candidate profile</h2><p class="sub" id="profSub">Set once. Used to match & to tailor the resume.</p>
+      <h2>What are you looking for?</h2><p class="sub">Set it, then hit search. Everything's built from this.</p>
       <div class="field"><label class="lbl">Search by</label>
-        <div class="seg" id="modeSeg"><button type="button" data-mode="dept" aria-pressed="true">Department</button><button type="button" data-mode="title" aria-pressed="false">Specific title</button></div>
+        <div class="seg" id="modeSeg"><button type="button" data-mode="dept" aria-pressed="true">Field</button><button type="button" data-mode="title" aria-pressed="false">Specific title</button></div>
       </div>
-      <div class="field" id="deptField"><label class="lbl" for="dept">Department / function</label><select id="dept"></select></div>
-      <div class="field" id="titleField" hidden><label class="lbl" for="titleInput">Base role</label><input type="text" id="titleInput" placeholder="e.g. Customer Experience"><p class="sub" style="margin:7px 0 0">Pick Head/Director/VP/Manager below to search them all.</p></div>
-      <div class="field"><label class="lbl">Seniority</label><div class="chips" id="seniorityChips"></div></div>
-      <div class="field"><label class="lbl">Work location</label>
+      <div class="field" id="deptField"><label class="lbl" for="dept">Field / function</label><select id="dept"></select></div>
+      <div class="field" id="titleField" hidden><label class="lbl" for="titleInput">Base role</label><input type="text" id="titleInput" placeholder="e.g. Customer Experience, Software Engineer"><p class="sub" style="margin:7px 0 0">Pick seniority levels below and Radar searches all of them (e.g. Head / Director / VP / Manager).</p></div>
+      <div class="field"><label class="lbl">Seniority (pick any)</label><div class="chips" id="seniorityChips"></div></div>
+      <div class="field"><label class="lbl">Work type</label>
         <div class="loc-flags" id="locFlags">
           <button type="button" class="flag" data-loc="remote" aria-pressed="true"><span class="em">🌍</span>Remote</button>
           <button type="button" class="flag" data-loc="hybrid" aria-pressed="false"><span class="em">🏢</span>Hybrid</button>
           <button type="button" class="flag" data-loc="onsite" aria-pressed="false"><span class="em">📍</span>On-site</button>
           <button type="button" class="flag" data-loc="any" aria-pressed="false"><span class="em">✳️</span>Any</button>
         </div>
-        <div class="tagbox" id="locTags"></div>
-        <input type="text" id="locInput" placeholder="Type a country or city, press Enter">
-        <p class="sub" style="margin:7px 0 0">Add several. Empty = global. Worldwide/anywhere-remote roles always show.</p>
       </div>
-      <div class="field"><label class="lbl" for="skills">Must-have keywords</label><input type="text" id="skills" placeholder="e.g. Node, React, fintech"></div>
-      <button class="gen" id="genBtn" type="button">Apply profile →</button>
+      <div class="field"><label class="lbl">Locations (city or country)</label>
+        <div class="tagbox" id="locTags"></div>
+        <input type="text" id="locInput" placeholder="Type a country/city, press Enter">
+        <p class="sub" style="margin:7px 0 0">Add several, or leave blank for global. LinkedIn/Indeed links use the first one.</p>
+      </div>
+      <div class="field"><label class="lbl" for="skills">Extra keywords <span style="text-transform:none;font-weight:400">(optional)</span></label><input type="text" id="skills" placeholder="e.g. fintech, Node, SaaS"></div>
+      <div class="field"><label class="lbl" for="posted">Posted within</label><select id="posted"><option value="any">Any time</option><option value="week" selected>Past week</option><option value="day">Past 24 hours</option></select></div>
+      <button class="gen" id="genBtn" type="button">Build searches →</button>
+      <button class="mini" id="resetBtn" type="button">Reset</button>
     </div></aside>
 
     <main>
-      <!-- MATCHES -->
-      <section id="view-matches">
-        <div class="rhead"><h1>Live matches</h1><span class="count" id="matchCount"></span></div>
-        <div class="feedmeta" id="feedMeta"></div>
-        <label style="display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--muted);margin-bottom:14px;cursor:pointer"><input type="checkbox" id="aggToggle"> Show broad aggregator listings (may bounce to less-known sites)</label>
-        <div id="matches"></div>
-      </section>
-
-      <!-- LAUNCH -->
-      <section id="view-launch" hidden>
-        <div class="rhead"><h1>Search everywhere</h1><span class="count" id="launchCount"></span></div>
-        <p class="sub">One click opens each role pre-filtered on that platform — including LinkedIn — then click the role to apply.</p>
-        <div id="launch"></div>
-      </section>
-
-      <!-- RESUME (hidden/disabled for now) -->
-      <section id="view-resume" hidden>
-        <div class="rhead"><h1>Fix the resume first</h1></div>
-        <div class="banner"><span>✨</span><div>Upload the existing resume (<b>PDF or Word</b>) or paste it, set the target profile on the left, then press <b>Improve with AI</b>. You get a rewritten, ATS-optimized version — better keywords, structure and bullet points — to download as <b>PDF and DOCX</b>.</div></div>
-        <div class="resgrid">
-          <div>
-            <div class="field"><label class="lbl">Upload resume (PDF or Word)</label>
-              <label class="drop" id="dropZone" for="resumeFile"><span id="dropText">Click to choose a PDF / .docx / .txt — or drag it here</span><input type="file" id="resumeFile" accept=".pdf,.doc,.docx,.txt" hidden></label>
-            </div>
-            <div class="field"><label class="lbl" for="resumeIn">…or paste / edit the text</label><textarea id="resumeIn" placeholder="Resume text appears here after upload — or paste it directly."></textarea></div>
-            <button class="gen" id="tailorBtn" type="button">Improve with AI →</button>
-            <p class="note" id="tailorNote" hidden></p>
-          </div>
-          <div>
-            <div class="rprev" id="resumePrev"><p style="color:var(--muted);font-size:13px">Your tailored resume will appear here.</p></div>
-            <div class="dlrow" id="dlRow" hidden>
-              <button class="btnsm" id="dlDocx" type="button">⬇ Download DOCX</button>
-              <button class="btnsm" id="dlPdf" type="button">⬇ Download PDF</button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <footer id="footer">Job Radar · aggregates public job feeds · relevance matched to your profile · apply links go to each role's own page</footer>
+      <div class="rhead"><h1>Your searches</h1><span class="count" id="count"></span></div>
+      <p class="lead">Each row is a role built from your filters. Click a platform to open that role, pre-filtered and live, on that site — then apply there. Links always point at current results, never a dead page.</p>
+      <div class="plat-toggles" id="platToggles" aria-label="Platforms"></div>
+      <div id="results"></div>
+      <footer>Job Radar · opens live, pre-filtered searches on each platform · nothing stored on a server</footer>
     </main>
   </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/docx/8.5.0/docx.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-<script src="config.js"></script>
 <script>
 (function(){
   "use strict";
-  var CFG=window.JOB_RADAR_CONFIG||{};
   var $=function(s,r){return (r||document).querySelector(s);};
   var root=document.documentElement;
-
-  /* theme */
   try{var t=localStorage.getItem("jr_theme"); if(t)root.setAttribute("data-theme",t);}catch(e){}
   $("#themeBtn").addEventListener("click",function(){var d=root.getAttribute("data-theme")||((window.matchMedia&&matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light");var n=d==="dark"?"light":"dark";root.setAttribute("data-theme",n);try{localStorage.setItem("jr_theme",n);}catch(e){}});
 
-  /* data */
   var DEPTS={
     software:{label:"Software Engineering",roles:["Software Engineer","Backend Engineer","Frontend Engineer","Full Stack Engineer","Developer","DevOps Engineer","Platform Engineer"]},
     data:{label:"Data / ML / AI",roles:["Data Engineer","Data Scientist","Machine Learning Engineer","Analytics Engineer","AI Engineer"]},
     product:{label:"Product",roles:["Product Manager","Product Owner","Technical Product Manager"]},
     design:{label:"Design / UX",roles:["Product Designer","UX Designer","UI Designer","UX Researcher"]},
-    cx:{label:"Customer Experience / Support",roles:["Customer Experience","Customer Success","Customer Support","Customer Service"]},
-    ops:{label:"Operations",roles:["Operations","Business Operations","Program Manager","Project Manager"]},
-    sales:{label:"Sales / BD",roles:["Account Executive","Sales","Business Development"]},
-    marketing:{label:"Marketing / Growth",roles:["Marketing","Growth","Performance Marketing","Content"]},
+    cx:{label:"Customer Experience / Support",roles:["Customer Experience","Customer Success","Customer Support","Head of Customer Experience","CX Operations"]},
+    ops:{label:"Operations",roles:["Operations","Business Operations","Program Manager","Project Manager","Head of Operations"]},
+    growth:{label:"Growth / Marketing",roles:["Growth","Marketing","Performance Marketing","Head of Growth","Content"]},
+    sales:{label:"Sales / BD",roles:["Account Executive","Sales","Business Development","Head of Sales"]},
     security:{label:"Security",roles:["Security Engineer","Application Security Engineer","Security Analyst"]},
-    finance:{label:"Finance",roles:["Finance","Financial Analyst","FP&A"]},
-    people:{label:"People / HR",roles:["Recruiter","People Operations","HR Business Partner"]}
+    finance:{label:"Finance",roles:["Finance","Financial Analyst","FP&A","Head of Finance"]},
+    people:{label:"People / HR",roles:["Recruiter","People Operations","HR Business Partner","Head of People"]}
   };
   var SEN=[
     {key:"junior",label:"Junior",prefix:"Junior",fe:["2"]},{key:"mid",label:"Mid-level",prefix:"",fe:["3","4"]},
@@ -247,248 +167,84 @@
     {key:"vp",label:"VP",prefix:"VP",fe:["6"]},{key:"head",label:"Head of",prefix:"Head of",fe:["6"]},{key:"chief",label:"C-level",prefix:"Chief",fe:["6"]}
   ];
   function slug(s){return s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");}
-  var IND={"pakistan":"pk.indeed.com","united kingdom":"uk.indeed.com","uk":"uk.indeed.com","canada":"ca.indeed.com","australia":"au.indeed.com","india":"in.indeed.com","uae":"ae.indeed.com","united arab emirates":"ae.indeed.com","singapore":"sg.indeed.com"};
+  var IND={"pakistan":"pk.indeed.com","united kingdom":"uk.indeed.com","uk":"uk.indeed.com","canada":"ca.indeed.com","australia":"au.indeed.com","india":"in.indeed.com","uae":"ae.indeed.com","united arab emirates":"ae.indeed.com","singapore":"sg.indeed.com","saudi arabia":"sa.indeed.com"};
+  var GULF=/(pakistan|uae|united arab emirates|dubai|abu dhabi|saudi|qatar|bahrain|kuwait|oman|riyadh|jeddah)/i;
   var PLATFORMS=[
     {key:"linkedin",label:"LinkedIn",color:"#0a66c2",on:true,build:function(t,c){var p=["keywords="+encodeURIComponent(t)];if(c.locText)p.push("location="+encodeURIComponent(c.locText));if(c.fe.length)p.push("f_E="+c.fe.join("%2C"));if(c.loc==="remote")p.push("f_WT=2");else if(c.loc==="hybrid")p.push("f_WT=3");else if(c.loc==="onsite")p.push("f_WT=1");if(c.posted==="day")p.push("f_TPR=r86400");else if(c.posted==="week")p.push("f_TPR=r604800");return "https://www.linkedin.com/jobs/search/?"+p.join("&");}},
-    {key:"indeed",label:"Indeed",color:"#2557a7",on:true,build:function(t,c){var d=IND[(c.country||"").toLowerCase().trim()]||"www.indeed.com";var q=t+(c.loc==="remote"?" remote":"");var p=["q="+encodeURIComponent(q)];if(c.locText)p.push("l="+encodeURIComponent(c.locText));return "https://"+d+"/jobs?"+p.join("&");}},
-    {key:"google",label:"Google Jobs",color:"#ea4335",on:true,build:function(t,c){return "https://www.google.com/search?q="+encodeURIComponent(t+" jobs"+(c.loc==="remote"?" remote":"")+(c.locText?" "+c.locText:""))+"&ibp=htl;jobs";}},
-    {key:"wellfound",label:"Wellfound",color:"#111827",on:true,build:function(t,c){return "https://wellfound.com/jobs?q="+encodeURIComponent(t)+(c.loc==="remote"?"&remote=true":"");}},
-    {key:"remoteok",label:"RemoteOK",color:"#0e9f6e",on:true,build:function(t){return "https://remoteok.com/remote-"+slug(t)+"-jobs";}},
-    {key:"wwr",label:"WeWorkRemotely",color:"#1a8917",on:true,build:function(t){return "https://weworkremotely.com/remote-jobs/search?term="+encodeURIComponent(t);}}
+    {key:"indeed",label:"Indeed",color:"#2557a7",on:true,build:function(t,c){var d=IND[(c.country||"").toLowerCase().trim()]||"www.indeed.com";var q=t+(c.loc==="remote"?" remote":"");var p=["q="+encodeURIComponent(q)];if(c.locText)p.push("l="+encodeURIComponent(c.locText));if(c.posted==="day")p.push("fromage=1");else if(c.posted==="week")p.push("fromage=7");return "https://"+d+"/jobs?"+p.join("&");}},
+    {key:"google",label:"Google Jobs",color:"#ea4335",on:true,build:function(t,c){return "https://www.google.com/search?q="+encodeURIComponent(t+" jobs"+(c.loc==="remote"?" remote":"")+(c.locAll?" "+c.locAll:""))+"&ibp=htl;jobs";}},
+    {key:"wellfound",label:"Wellfound",color:"#1a1a1a",on:true,build:function(t,c){return "https://wellfound.com/jobs?q="+encodeURIComponent(t)+(c.loc==="remote"?"&remote=true":"");}},
+    {key:"glassdoor",label:"Glassdoor",color:"#0caa41",on:true,build:function(t){return "https://www.glassdoor.com/Job/jobs.htm?sc.keyword="+encodeURIComponent(t);}},
+    {key:"remoteok",label:"RemoteOK",color:"#0e9f6e",on:false,build:function(t){return "https://remoteok.com/remote-"+slug(t)+"-jobs";}},
+    {key:"wwr",label:"WeWorkRemotely",color:"#137d13",on:false,build:function(t){return "https://weworkremotely.com/remote-jobs/search?term="+encodeURIComponent(t);}},
+    {key:"bayt",label:"Bayt (Gulf)",color:"#c8102e",on:false,build:function(t){return "https://www.bayt.com/en/jobs/q/"+encodeURIComponent(t)+"/";}},
+    {key:"rozee",label:"Rozee.pk",color:"#2e7d32",on:false,build:function(t){return "https://www.rozee.pk/job/jsearch/q/"+encodeURIComponent(t);}}
   ];
 
-  /* state */
-  var state={mode:"dept",dept:"software",title:"",seniority:{senior:true,staff:true,lead:true},loc:"remote",locations:[],skills:"",posted:"week"};
-  try{var sv=localStorage.getItem("jr_profile"); if(sv)Object.assign(state,JSON.parse(sv));}catch(e){}
-  if(!Array.isArray(state.locations)) state.locations=[];
-  if(state.country){ if(state.country.trim())state.locations.push(state.country.trim()); delete state.country; }
+  var state={mode:"dept",dept:"software",title:"",seniority:{senior:true,staff:true,lead:true},loc:"remote",locations:[],skills:"",posted:"week",plat:{}};
+  PLATFORMS.forEach(function(p){state.plat[p.key]=p.on;});
+  try{var sv=localStorage.getItem("jr_search"); if(sv)Object.assign(state,JSON.parse(sv));}catch(e){}
+  if(!Array.isArray(state.locations))state.locations=[];
 
-  /* controls */
   var deptSel=$("#dept");
   Object.keys(DEPTS).forEach(function(k){var o=document.createElement("option");o.value=k;o.textContent=DEPTS[k].label;deptSel.appendChild(o);});
-  deptSel.value=state.dept; deptSel.addEventListener("change",function(){state.dept=deptSel.value;});
+  deptSel.addEventListener("change",function(){state.dept=deptSel.value;});
   var senWrap=$("#seniorityChips");
-  SEN.forEach(function(s){var b=document.createElement("button");b.type="button";b.className="chip";b.textContent=s.label;b.setAttribute("aria-pressed",state.seniority[s.key]?"true":"false");b.addEventListener("click",function(){state.seniority[s.key]=!state.seniority[s.key];b.setAttribute("aria-pressed",state.seniority[s.key]?"true":"false");});senWrap.appendChild(b);});
+  SEN.forEach(function(s){var b=document.createElement("button");b.type="button";b.className="chip";b.textContent=s.label;b.addEventListener("click",function(){state.seniority[s.key]=!state.seniority[s.key];b.setAttribute("aria-pressed",state.seniority[s.key]?"true":"false");});senWrap.appendChild(b);});
   var modeSeg=$("#modeSeg");
   function applyMode(){Array.prototype.forEach.call(modeSeg.children,function(b){b.setAttribute("aria-pressed",b.dataset.mode===state.mode?"true":"false");});$("#deptField").hidden=state.mode!=="dept";$("#titleField").hidden=state.mode!=="title";}
   modeSeg.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;state.mode=b.dataset.mode;applyMode();});
   var locFlags=$("#locFlags");
   locFlags.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;state.loc=b.dataset.loc;Array.prototype.forEach.call(locFlags.children,function(x){x.setAttribute("aria-pressed",x.dataset.loc===state.loc?"true":"false");});});
-  // location tags
+
   var locInput=$("#locInput"),locTags=$("#locTags");
-  function renderLocTags(){locTags.innerHTML=state.locations.map(function(c,i){return '<span class="loctag">'+c.replace(/</g,"&lt;")+'<button type="button" data-i="'+i+'" aria-label="remove">×</button></span>';}).join("");}
+  function esc(s){return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+  function renderLocTags(){locTags.innerHTML=state.locations.map(function(c,i){return '<span class="loctag">'+esc(c)+'<button type="button" data-i="'+i+'" aria-label="remove">×</button></span>';}).join("");}
   function addLoc(v){v=(v||"").trim().replace(/,$/,"").trim();if(!v)return;if(state.locations.map(function(x){return x.toLowerCase();}).indexOf(v.toLowerCase())<0)state.locations.push(v);renderLocTags();}
   locInput.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===","){e.preventDefault();addLoc(locInput.value);locInput.value="";}});
   locInput.addEventListener("blur",function(){if(locInput.value.trim()){addLoc(locInput.value);locInput.value="";}});
   locTags.addEventListener("click",function(e){var b=e.target.closest("button[data-i]");if(!b)return;state.locations.splice(+b.dataset.i,1);renderLocTags();});
 
-  $("#titleInput").value=state.title;$("#skills").value=state.skills;
-  function sync(){deptSel.value=state.dept;$("#titleInput").value=state.title;$("#skills").value=state.skills;renderLocTags();applyMode();Array.prototype.forEach.call(senWrap.children,function(b,i){b.setAttribute("aria-pressed",state.seniority[SEN[i].key]?"true":"false");});Array.prototype.forEach.call(locFlags.children,function(x){x.setAttribute("aria-pressed",x.dataset.loc===state.loc?"true":"false");});}
+  function sync(){
+    deptSel.value=state.dept;$("#titleInput").value=state.title;$("#skills").value=state.skills;$("#posted").value=state.posted;
+    applyMode();renderLocTags();
+    Array.prototype.forEach.call(senWrap.children,function(b,i){b.setAttribute("aria-pressed",state.seniority[SEN[i].key]?"true":"false");});
+    Array.prototype.forEach.call(locFlags.children,function(x){x.setAttribute("aria-pressed",x.dataset.loc===state.loc?"true":"false");});
+    Array.prototype.forEach.call(platWrap.children,function(b,i){b.setAttribute("aria-pressed",state.plat[PLATFORMS[i].key]?"true":"false");});
+  }
+  function readInputs(){state.title=$("#titleInput").value.trim();if(locInput.value.trim()){addLoc(locInput.value);locInput.value="";}state.skills=$("#skills").value.trim();state.posted=$("#posted").value;try{localStorage.setItem("jr_search",JSON.stringify(state));}catch(e){}}
 
-  function readInputs(){state.title=$("#titleInput").value.trim();if(locInput.value.trim()){addLoc(locInput.value);locInput.value="";}state.skills=$("#skills").value.trim();try{localStorage.setItem("jr_profile",JSON.stringify(state));}catch(e){}saveProfileRemote();}
   function selSen(){var a=SEN.filter(function(s){return state.seniority[s.key];});return a.length?a:[{prefix:"",fe:[]}];}
   function stripSen(str){var re=/^(junior|mid[- ]?level|mid|senior|sr\.?|staff|principal|lead|manager|director|vp|vice president|head of|head|chief)\s+/i;var t=str;while(re.test(t))t=t.replace(re,"");return t.trim();}
   function bases(){if(state.mode==="title"){var b=stripSen(state.title||"");return b?[b]:[];}return DEPTS[state.dept].roles.slice();}
-  function terms(){var out=[],seen={};bases().forEach(function(r){selSen().forEach(function(s){var t=((s.prefix?s.prefix+" ":"")+r).replace(/\s+/g," ").trim();if(!seen[t.toLowerCase()]){seen[t.toLowerCase()]=1;out.push(t);}});});return out.slice(0,18);}
+  function terms(){var out=[],seen={};bases().forEach(function(r){selSen().forEach(function(s){var t=((s.prefix?s.prefix+" ":"")+r).replace(/\s+/g," ").trim();if(!seen[t.toLowerCase()]){seen[t.toLowerCase()]=1;out.push(t);}});});return out.slice(0,20);}
   function fes(){var set={};selSen().forEach(function(s){(s.fe||[]).forEach(function(f){set[f]=1;});});return Object.keys(set);}
-  function ctx(){var first=state.locations[0]||"";return {loc:state.loc,country:first,locText:first,locations:state.locations.slice(),fe:fes(),posted:state.posted,skills:state.skills};}
+  function ctx(){var first=state.locations[0]||"";return {loc:state.loc,country:first,locText:first,locAll:state.locations.join(" "),fe:fes(),posted:state.posted,skills:state.skills};}
 
-  /* ---- LIVE MATCHES ---- */
-  var FEED={jobs:[]};
-  var TIER={company:{label:"Company careers",boost:22},board:{label:"Remote board",boost:8},aggregator:{label:"Aggregator",boost:0}};
-  function tierOf(j){return j.tier||(/Greenhouse|Lever|Ashby/.test(j.source)?"company":/Adzuna/.test(j.source)?"aggregator":"board");}
-  function jobLinks(j){var q=encodeURIComponent((j.title||"")+" "+(j.company||""));return {li:"https://www.linkedin.com/jobs/search/?keywords="+q,ind:"https://www.indeed.com/jobs?q="+q};}
-  function relWords(){var w=[];bases().forEach(function(r){r.toLowerCase().split(/[^a-z0-9]+/).forEach(function(x){if(x.length>2)w.push(x);});});return w;}
-  function senWords(){return selSen().map(function(s){return (s.prefix||"").toLowerCase();}).filter(Boolean);}
-  function scoreJob(j){
-    var title=(j.title||"").toLowerCase(),loc=(j.location||"").toLowerCase(),blob=title+" "+(j.tags||[]).join(" ").toLowerCase();
-    var s=0,why=[];
-    var rw=relWords(); var hit=rw.filter(function(w){return title.indexOf(w)>=0;});
-    if(!hit.length){ // require at least a role-word match in title
-      var tagHit=rw.filter(function(w){return blob.indexOf(w)>=0;}); if(!tagHit.length)return null; s+=6;
-    } else { s+=hit.length*10; why.push("role match"); }
-    var sw=senWords(); var sh=sw.filter(function(w){return title.indexOf(w)>=0;});
-    if(sw.length){ if(sh.length){s+=15;why.push("seniority");} }
-    // work type: if Remote is chosen, require a remote role
-    if(state.loc==="remote"){ if(j.remote||/remote|anywhere|worldwide|global/.test(loc)){s+=10;why.push("remote");} else {return null;} }
-    // location tags — hard filter when any are set
-    if(state.locations.length){
-      var worldwide=/worldwide|anywhere|global/.test(loc);
-      var hitLoc=state.locations.some(function(c){return c&&loc.indexOf(c.toLowerCase())>=0;});
-      if(hitLoc){s+=14;why.push("location");}
-      else if(worldwide){s+=4;}
-      else return null; // role is tied to a different region → drop it
-    }
-    // keywords
-    if(state.skills){ state.skills.toLowerCase().split(/[,\s]+/).filter(Boolean).forEach(function(k){ if(blob.indexOf(k)>=0){s+=8;why.push(k);} }); }
-    // recency
-    var age=j.posted?(Date.now()-Date.parse(j.posted))/86400000:99; if(age<7)s+=6; else if(age<30)s+=2;
-    // source quality
-    var tk=tierOf(j); s+=(TIER[tk]||{}).boost||0; if(tk==="company")why.unshift("company site");
-    return {score:s,why:why.slice(0,4)};
-  }
-  function rel(t){if(!t)return"";var d=(Date.now()-Date.parse(t))/86400000;if(isNaN(d))return"";if(d<1)return"today";if(d<2)return"1d ago";if(d<30)return Math.round(d)+"d ago";return Math.round(d/30)+"mo ago";}
-  function esc(s){return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
-  function renderMatches(){
-    var box=$("#matches");
-    if(!FEED.jobs.length){box.innerHTML='<div class="empty">Loading the live feed… if this stays empty, the crawler hasn\'t run yet — trigger it once from the repo\'s <b>Actions → Crawl jobs → Run workflow</b>.</div>';$("#matchCount").textContent="";return;}
-    var showAgg=$("#aggToggle")&&$("#aggToggle").checked;
-    var scored=[],hiddenAgg=0;
-    FEED.jobs.forEach(function(j){
-      if(!showAgg&&tierOf(j)==="aggregator"){hiddenAgg++;return;}
-      var r=scoreJob(j);if(r&&r.score>0)scored.push(Object.assign({},j,r));
-    });
-    scored.sort(function(a,b){return b.score-a.score;});
-    scored=scored.slice(0,80);
-    $("#matchCount").textContent=scored.length+" roles"+(hiddenAgg?" · "+hiddenAgg+" aggregator hidden":"");
-    if(!scored.length){box.innerHTML='<div class="empty">No matches for this profile yet. Loosen seniority or switch location to <b>Any</b>, or check <b>Search everywhere</b>.</div>';return;}
-    box.innerHTML=scored.map(function(j){
-      var tags=(j.tags||[]).slice(0,3).map(function(t){return '<span class="tagx">'+esc(t)+'</span>';}).join("");
-      var tk=tierOf(j),L=jobLinks(j);
-      var badge='<span class="tagx src">'+esc((TIER[tk]||{}).label||j.source)+'</span>';
-      var secondary='<div class="qlinks" style="margin-top:9px">'+
-        '<a class="qlink" href="'+esc(j.url)+'" target="_blank" rel="noopener noreferrer" style="border-color:var(--accent);color:var(--accent)">'+(tk==="company"?"Apply on company site →":"Open listing →")+'</a>'+
-        '<a class="qlink" href="'+esc(L.li)+'" target="_blank" rel="noopener noreferrer"><span class="sq" style="background:#0a66c2"></span>LinkedIn</a>'+
-        '<a class="qlink" href="'+esc(L.ind)+'" target="_blank" rel="noopener noreferrer"><span class="sq" style="background:#2557a7"></span>Indeed</a>'+
-        '</div>';
-      return '<div class="job"><div class="body">'+
-        '<p class="jt">'+esc(j.title)+'</p>'+
-        '<div class="co"><b>'+esc(j.company||"—")+'</b> · '+esc(j.location||"")+(rel(j.posted)?' · '+rel(j.posted):'')+'</div>'+
-        '<div class="meta">'+(j.remote?'<span class="tagx rem">Remote</span>':'')+badge+tags+'</div>'+
-        (j.why&&j.why.length?'<div class="why">✓ '+j.why.map(esc).join(" · ")+'</div>':'')+
-        secondary+
-        '</div><div class="apply"><a href="'+esc(j.url)+'" target="_blank" rel="noopener noreferrer">Apply →</a><div class="score">match '+j.score+'</div></div></div>';
-    }).join("");
-  }
-  function loadFeed(){
-    fetch((CFG.JOBS_FEED||"data/jobs.json")+"?t="+Date.now()).then(function(r){return r.json();}).then(function(d){
-      FEED=d||{jobs:[]};
-      var when=FEED.generatedAt?new Date(FEED.generatedAt).toLocaleString():"unknown";
-      $("#feedMeta").textContent=(FEED.seed?"⚠ sample data — ":"")+"feed: "+ (FEED.count||FEED.jobs.length)+" roles · updated "+when+(FEED.sources?" · "+Object.keys(FEED.sources).map(function(k){return k+" "+FEED.sources[k];}).join(", "):"");
-      renderMatches();
-    }).catch(function(){$("#matches").innerHTML='<div class="empty">Couldn\'t load the feed file. Once deployed on GitHub Pages with the crawler run at least once, live roles show here.</div>';});
-  }
+  var platWrap=$("#platToggles");
+  PLATFORMS.forEach(function(p){var b=document.createElement("button");b.type="button";b.className="ptog";b.textContent=p.label;b.addEventListener("click",function(){state.plat[p.key]=!state.plat[p.key];b.setAttribute("aria-pressed",state.plat[p.key]?"true":"false");render();});platWrap.appendChild(b);});
 
-  /* ---- LAUNCHER ---- */
-  var openStore={};
-  function renderLaunch(){
-    var ts=terms(),c=ctx(),plats=PLATFORMS.filter(function(p){return p.on;});
-    if(!ts.length){$("#launch").innerHTML='<div class="empty">Pick a department or base role + seniority, then Apply profile.</div>';$("#launchCount").textContent="";return;}
-    $("#launchCount").textContent=ts.length+" searches · "+plats.length+" platforms";
-    $("#launch").innerHTML=ts.map(function(term,idx){
-      var full=term+(c.skills?(" "+c.skills):"");var urls=[];
-      var links=plats.map(function(p){var u=p.build(full,c);urls.push(u);return '<a class="qlink" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer"><span class="sq" style="background:'+p.color+'"></span>'+p.label+'</a>';}).join("");
-      openStore[idx]=urls;
-      return '<div class="qcard"><div class="qtop"><span class="qterm">'+esc(term)+'</span><button class="btnsm" data-all="'+idx+'" type="button">Open all ↗</button></div><div class="qlinks">'+links+'</div></div>';
-    }).join("");
-  }
-  $("#launch").addEventListener("click",function(e){var b=e.target.closest("[data-all]");if(!b)return;var u=openStore[b.dataset.all]||[];if(u.length>3&&!confirm("Open "+u.length+" tabs? Your browser may block pop-ups."))return;u.forEach(function(x){window.open(x,"_blank","noopener");});});
-
-  /* ---- RESUME (upload + AI tailor + downloads) ---- */
-  var LAST=null;
-  function fallbackParse(txt){ // when no AI endpoint configured, keep the text as a single summary block
-    return {name:"",title:"",contact:"",summary:txt.trim().slice(0,1500),skills:[],experience:[],education:[]};
-  }
-  // file upload → extract text
-  if(window.pdfjsLib){try{pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";}catch(e){}}
-  var dropZone=$("#dropZone"),dropText=$("#dropText"),fileIn=$("#resumeFile");
-  function setDrop(msg,ok){dropText.textContent=msg;dropZone.classList.toggle("ok",!!ok);}
-  async function extractPDF(buf){
-    var pdf=await pdfjsLib.getDocument({data:buf}).promise,out=[];
-    for(var i=1;i<=pdf.numPages;i++){var pg=await pdf.getPage(i);var tc=await pg.getTextContent();out.push(tc.items.map(function(it){return it.str;}).join(" "));}
-    return out.join("\n");
-  }
-  async function handleFile(file){
-    if(!file)return;
-    setDrop("Reading “"+file.name+"”…",false);
-    try{
-      var name=file.name.toLowerCase(),text="";
-      if(name.endsWith(".pdf")){ if(!window.pdfjsLib)throw new Error("PDF reader not loaded"); text=await extractPDF(await file.arrayBuffer()); }
-      else if(name.endsWith(".docx")){ if(!window.mammoth)throw new Error("Word reader not loaded"); var r=await mammoth.extractRawText({arrayBuffer:await file.arrayBuffer()}); text=r.value; }
-      else if(name.endsWith(".doc")){ throw new Error("Old .doc format — please save as .docx or PDF"); }
-      else { text=await file.text(); }
-      text=(text||"").replace(/\n{3,}/g,"\n\n").trim();
-      if(!text){setDrop("Couldn't read text from that file — try pasting it instead.",false);return;}
-      $("#resumeIn").value=text;
-      setDrop("✓ "+file.name+" loaded ("+text.length+" chars). Edit below if needed, then Improve with AI.",true);
-    }catch(e){ setDrop("Couldn't read that file ("+e.message+"). Paste the text instead.",false); }
-  }
-  if(fileIn)fileIn.addEventListener("change",function(){handleFile(fileIn.files[0]);});
-  if(dropZone){
-    dropZone.addEventListener("dragover",function(e){e.preventDefault();dropZone.classList.add("over");});
-    dropZone.addEventListener("dragleave",function(){dropZone.classList.remove("over");});
-    dropZone.addEventListener("drop",function(e){e.preventDefault();dropZone.classList.remove("over");if(e.dataTransfer.files&&e.dataTransfer.files[0])handleFile(e.dataTransfer.files[0]);});
-  }
-  $("#tailorBtn").addEventListener("click",function(){
-    var txt=$("#resumeIn").value.trim(); var note=$("#tailorNote");
-    if(!txt){note.hidden=false;note.textContent="Paste the resume text first.";return;}
+  var results=$("#results"),openStore={};
+  function render(){
     readInputs();
-    var target={mode:state.mode,dept:DEPTS[state.dept]&&DEPTS[state.dept].label,title:state.title,seniority:selSen().map(function(s){return s.label;}),workType:state.loc,locations:state.locations,keywords:state.skills};
-    if(!CFG.TAILOR_URL){ note.hidden=false; note.textContent="AI tailoring isn't configured yet (add TAILOR_URL in config.js). Showing your text so you can still download it formatted."; LAST=fallbackParse(txt); renderResume(LAST); return; }
-    note.hidden=false;note.textContent="Tailoring… (a few seconds)";$("#tailorBtn").disabled=true;
-    fetch(CFG.TAILOR_URL,{method:"POST",headers:{"Content-Type":"application/json",...(CFG.SUPABASE_ANON_KEY?{"Authorization":"Bearer "+CFG.SUPABASE_ANON_KEY,"apikey":CFG.SUPABASE_ANON_KEY}:{})},body:JSON.stringify({resume:txt,target:target})})
-      .then(function(r){return r.json().catch(function(){return {};}).then(function(d){if(!r.ok){var msg=(d&&d.error)?d.error:("HTTP "+r.status);var det=(d&&d.detail)?(" — "+(d.detail.error&&d.detail.error.message?d.detail.error.message:JSON.stringify(d.detail).slice(0,300))):"";throw new Error(msg+det);}return d;});})
-      .then(function(d){LAST=d.resume||d;renderResume(LAST);note.hidden=true;})
-      .catch(function(e){note.textContent="Tailoring failed ("+e.message+"). Check the function is deployed and the key is set. Your text is shown so you can still download it.";LAST=fallbackParse(txt);renderResume(LAST);})
-      .finally(function(){$("#tailorBtn").disabled=false;});
-  });
-  function renderResume(r){
-    var p=$("#resumePrev");
-    var exp=(r.experience||[]).map(function(e){
-      var b=(e.bullets||[]).map(function(x){return '<li>'+esc(x)+'</li>';}).join("");
-      return '<div style="margin-bottom:8px"><b>'+esc(e.title||"")+'</b> — '+esc(e.company||"")+' <span style="color:var(--muted)">'+esc(e.dates||"")+'</span>'+(b?'<ul>'+b+'</ul>':'')+'</div>';
+    // auto-suggest regional boards when a Gulf/Pakistan location is present
+    if(state.locations.some(function(c){return GULF.test(c);})){ if(state.plat.bayt===undefined)state.plat.bayt=true; }
+    var ts=terms(),c=ctx(),plats=PLATFORMS.filter(function(p){return state.plat[p.key];});
+    if(!ts.length){results.innerHTML='<div class="empty">Pick a field (or type a base role) and at least one seniority level, then <b>Build searches</b>.</div>';$("#count").textContent="";return;}
+    $("#count").textContent=ts.length+" role"+(ts.length>1?"s":"")+" × "+plats.length+" platforms";
+    results.innerHTML=ts.map(function(term,idx){
+      var full=term+(c.skills?(" "+c.skills):"");var urls=[];
+      var links=plats.map(function(p){var u=p.build(full,c);urls.push(u);return '<a class="qlink" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer"><span class="sq" style="background:'+p.color+'"></span>'+esc(p.label)+'</a>';}).join("");
+      openStore[idx]=urls;
+      return '<div class="qcard"><div class="qtop"><span class="qterm">'+esc(term)+'</span><button class="openall" type="button" data-all="'+idx+'">Open all ↗</button></div><div class="qlinks">'+links+'</div></div>';
     }).join("");
-    p.innerHTML=(r.name?'<h3>'+esc(r.name)+'</h3>':'')+(r.title?'<div class="rmeta">'+esc(r.title)+(r.contact?' · '+esc(r.contact):'')+'</div>':(r.contact?'<div class="rmeta">'+esc(r.contact)+'</div>':''))+
-      (r.summary?'<h4>Summary</h4><p>'+esc(r.summary)+'</p>':'')+
-      ((r.skills&&r.skills.length)?'<h4>Skills</h4><p>'+r.skills.map(esc).join(" · ")+'</p>':'')+
-      (exp?'<h4>Experience</h4>'+exp:'')+
-      ((r.education&&r.education.length)?'<h4>Education</h4>'+r.education.map(function(x){return '<p>'+esc(x)+'</p>';}).join(""):'');
-    $("#dlRow").hidden=false;
   }
-  $("#dlPdf").addEventListener("click",function(){ if(!LAST)return; var el=$("#resumePrev").cloneNode(true); el.style.background="#fff"; el.style.color="#111"; html2pdf().set({margin:12,filename:(slug(LAST.name||"resume"))+".pdf",html2canvas:{scale:2},jsPDF:{unit:"pt",format:"a4"}}).from(el).save(); });
-  $("#dlDocx").addEventListener("click",function(){ if(!LAST||!window.docx)return; buildDocx(LAST); });
-  function buildDocx(r){
-    var d=window.docx;var P=d.Paragraph,T=d.TextRun,H=d.HeadingLevel,B=d.BorderStyle;
-    var AC="1B5E86";
-    function head(t){return new P({spacing:{before:220,after:40},border:{bottom:{color:"C9D3DE",style:B.SINGLE,size:6,space:3}},children:[new T({text:t.toUpperCase(),bold:true,color:AC,size:22,characterSpacing:20})]});}
-    var kids=[];
-    if(r.name)kids.push(new P({spacing:{after:20},children:[new T({text:r.name,bold:true,size:40,color:AC})]}));
-    if(r.title||r.contact)kids.push(new P({spacing:{after:60},border:{bottom:{color:AC,style:B.SINGLE,size:10,space:2}},children:[new T({text:[r.title,r.contact].filter(Boolean).join("   |   "),color:"555555",size:20})]}));
-    if(r.summary){kids.push(head("Summary"));kids.push(new P({children:[new T({text:r.summary,size:20})]}));}
-    if(r.skills&&r.skills.length){kids.push(head("Skills"));kids.push(new P({children:[new T({text:r.skills.join("  ·  "),size:20})]}));}
-    if(r.experience&&r.experience.length){kids.push(head("Experience"));r.experience.forEach(function(e){kids.push(new P({spacing:{before:120},children:[new T({text:(e.title||"")+" — "+(e.company||""),bold:true,size:21}),new T({text:"   "+(e.dates||""),color:"777777",size:19})]}));(e.bullets||[]).forEach(function(x){kids.push(new P({bullet:{level:0},spacing:{after:20},children:[new T({text:x,size:20})]}));});});}
-    if(r.education&&r.education.length){kids.push(head("Education"));r.education.forEach(function(x){kids.push(new P({children:[new T({text:x,size:20})]}));});}
-    var doc=new d.Document({styles:{default:{document:{run:{font:"Calibri"}}}},sections:[{properties:{page:{margin:{top:720,bottom:720,left:900,right:900}}},children:kids}]});
-    d.Packer.toBlob(doc).then(function(blob){var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=(slug(r.name||"resume"))+".docx";a.click();setTimeout(function(){URL.revokeObjectURL(a.href);},2000);});
-  }
+  results.addEventListener("click",function(e){var b=e.target.closest("[data-all]");if(!b)return;var u=openStore[b.dataset.all]||[];if(u.length>3&&!confirm("Open "+u.length+" tabs? Your browser may block pop-ups."))return;u.forEach(function(x){window.open(x,"_blank","noopener");});});
 
-  /* ---- tabs ---- */
-  document.querySelector(".tabs").addEventListener("click",function(e){var b=e.target.closest(".tab");if(!b)return;var v=b.dataset.view;Array.prototype.forEach.call(document.querySelectorAll(".tab"),function(x){x.setAttribute("aria-selected",x===b?"true":"false");});["matches","launch","resume"].forEach(function(n){$("#view-"+n).hidden=(n!==v);});});
+  $("#genBtn").addEventListener("click",function(){render();window.scrollTo({top:0,behavior:"smooth"});});
+  $("#resetBtn").addEventListener("click",function(){state={mode:"dept",dept:"software",title:"",seniority:{senior:true,staff:true,lead:true},loc:"remote",locations:[],skills:"",posted:"week",plat:{}};PLATFORMS.forEach(function(p){state.plat[p.key]=p.on;});try{localStorage.removeItem("jr_search");}catch(e){}sync();render();});
 
-  $("#genBtn").addEventListener("click",function(){readInputs();renderMatches();renderLaunch();});
-
-  /* ---- Supabase auth + profile persistence (optional) ---- */
-  var sb=null;
-  function saveProfileRemote(){ if(sb&&CURRENT_USER){ sb.from("profiles").upsert({user_id:CURRENT_USER.id,data:state,updated_at:new Date().toISOString()}).then(function(){},function(){}); } }
-  var CURRENT_USER=null;
-  function initAuth(){
-    var box=$("#userBox");
-    if(!(CFG.SUPABASE_URL&&CFG.SUPABASE_ANON_KEY&&window.supabase)){ box.innerHTML=''; return; }
-    sb=window.supabase.createClient(CFG.SUPABASE_URL,CFG.SUPABASE_ANON_KEY);
-    function paint(u){
-      CURRENT_USER=u;
-      if(u){ box.innerHTML='<span>'+esc(u.email||"signed in")+'</span>'; var o=document.createElement("button");o.className="btnsm";o.textContent="Sign out";o.onclick=function(){sb.auth.signOut();};box.appendChild(o);
-        sb.from("profiles").select("data").eq("user_id",u.id).maybeSingle().then(function(res){if(res.data&&res.data.data){Object.assign(state,res.data.data);sync();renderMatches();renderLaunch();}});
-      } else { box.innerHTML=''; var b=document.createElement("button");b.className="btnsm";b.textContent="Sign in with Google";b.onclick=function(){sb.auth.signInWithOAuth({provider:"google",options:{redirectTo:location.href}});};box.appendChild(b); }
-    }
-    sb.auth.getUser().then(function(res){paint(res.data&&res.data.user);});
-    sb.auth.onAuthStateChange(function(_e,s){paint(s&&s.user);});
-  }
-
-  var agg=$("#aggToggle"); if(agg)agg.addEventListener("change",renderMatches);
-
-  /* boot */
-  sync(); initAuth(); loadFeed(); renderLaunch();
+  sync();render();
 })();
 </script>
 </body>
