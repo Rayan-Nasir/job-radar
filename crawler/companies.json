@@ -1,0 +1,5 @@
+{
+  "greenhouse": ["stripe", "airbnb", "figma", "databricks", "gitlab", "brex", "discord", "coinbase", "robinhood", "dropbox", "twitch", "cloudflare"],
+  "lever": ["netflix", "spotify", "plaid", "ramp", "notion", "brave"],
+  "ashby": ["ramp", "linear", "vercel", "posthog", "replicate", "openai"]
+}
