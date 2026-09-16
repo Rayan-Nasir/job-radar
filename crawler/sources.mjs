@@ -21,6 +21,7 @@ function norm(o) {
     remote: !!o.remote,
     url: o.url,
     source: o.source,
+    tier: o.tier || "board",
     posted: o.posted || null,
     tags: (o.tags || []).filter(Boolean).slice(0, 12),
   };
@@ -32,7 +33,7 @@ export async function greenhouse(token) {
   const d = await getJSON(`https://boards-api.greenhouse.io/v1/boards/${token}/jobs?content=false`);
   return (d.jobs || []).map((j) =>
     norm({
-      source: "Greenhouse", extId: String(j.id), title: j.title,
+      source: "Greenhouse", tier: "company", extId: String(j.id), title: j.title,
       company: j.company_name || token, location: j.location?.name || "",
       remote: isRemote(j.location?.name), url: j.absolute_url,
       posted: j.updated_at, tags: (j.metadata || []).map((m) => m.value).filter((v) => typeof v === "string"),
@@ -45,7 +46,7 @@ export async function lever(company) {
   const d = await getJSON(`https://api.lever.co/v0/postings/${company}?mode=json`);
   return (d || []).map((j) =>
     norm({
-      source: "Lever", extId: j.id, title: j.text, company,
+      source: "Lever", tier: "company", extId: j.id, title: j.text, company,
       location: j.categories?.location || "", remote: isRemote(j.categories?.location) || isRemote(j.workplaceType),
       url: j.hostedUrl, posted: j.createdAt ? new Date(j.createdAt).toISOString() : null,
       tags: [j.categories?.team, j.categories?.commitment].filter(Boolean),
@@ -58,7 +59,7 @@ export async function ashby(org) {
   const d = await getJSON(`https://api.ashbyhq.com/posting-api/job-board/${org}?includeCompensation=false`);
   return (d.jobs || []).map((j) =>
     norm({
-      source: "Ashby", extId: j.id, title: j.title, company: d.name || org,
+      source: "Ashby", tier: "company", extId: j.id, title: j.title, company: d.name || org,
       location: j.location || "", remote: !!j.isRemote || isRemote(j.location),
       url: j.jobUrl || j.applyUrl, posted: j.publishedAt,
       tags: [j.department, j.team, j.employmentType].filter(Boolean),
@@ -71,7 +72,7 @@ export async function remotive(search) {
   const d = await getJSON(`https://remotive.com/api/remote-jobs?search=${encodeURIComponent(search)}&limit=60`);
   return (d.jobs || []).map((j) =>
     norm({
-      source: "Remotive", extId: String(j.id), title: j.title, company: j.company_name,
+      source: "Remotive", tier: "board", extId: String(j.id), title: j.title, company: j.company_name,
       location: j.candidate_required_location || "Remote", remote: true, url: j.url,
       posted: j.publication_date, tags: [j.category, ...(j.tags || [])],
     })
@@ -95,7 +96,7 @@ export async function remoteok() {
   const d = await getJSON(`https://remoteok.com/api`);
   return (Array.isArray(d) ? d : []).filter((j) => j && j.id && j.position).map((j) =>
     norm({
-      source: "RemoteOK", extId: String(j.id), title: j.position, company: j.company,
+      source: "RemoteOK", tier: "board", extId: String(j.id), title: j.position, company: j.company,
       location: j.location || "Remote", remote: true, url: j.url,
       posted: j.date, tags: j.tags || [],
     })
@@ -113,7 +114,7 @@ export async function adzuna({ appId, appKey, country = "gb", queries = [] }) {
       const d = await getJSON(url);
       (d.results || []).forEach((j) =>
         out.push(norm({
-          source: "Adzuna", extId: String(j.id), title: j.title, company: j.company?.display_name || "",
+          source: "Adzuna", tier: "aggregator", extId: String(j.id), title: j.title, company: j.company?.display_name || "",
           location: j.location?.display_name || "", remote: isRemote(j.title) || isRemote(j.description),
           url: j.redirect_url, posted: j.created, tags: [j.category?.label].filter(Boolean),
         }))

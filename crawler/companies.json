@@ -1,5 +1,5 @@
 {
-  "greenhouse": ["stripe", "airbnb", "figma", "databricks", "gitlab", "brex", "discord", "coinbase", "robinhood", "dropbox", "twitch", "cloudflare"],
-  "lever": ["netflix", "spotify", "plaid", "ramp", "notion", "brave"],
-  "ashby": ["ramp", "linear", "vercel", "posthog", "replicate", "openai"]
+  "greenhouse": ["stripe", "airbnb", "figma", "databricks", "gitlab", "discord", "coinbase", "robinhood", "dropbox", "twitch", "cloudflare", "brex", "reddit", "doordash", "instacart", "lyft", "pinterest", "asana", "samsara", "retool", "benchling", "affirm", "chime", "gusto", "flexport", "sofi", "wise", "monzo", "revolut", "hellofresh"],
+  "lever": ["netflix", "plaid", "brave", "attentive", "kraken", "veeva", "podium", "faire"],
+  "ashby": ["openai", "ramp", "linear", "vercel", "posthog", "replicate", "anysphere", "perplexityai", "mistral", "deel", "runwayml", "clerk", "supabase", "resend", "loops"]
 }

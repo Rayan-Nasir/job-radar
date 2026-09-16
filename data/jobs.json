@@ -4,11 +4,11 @@
   "seed": true,
   "sources": { "Greenhouse": 2, "Lever": 1, "Ashby": 1, "Remotive": 1, "RemoteOK": 1 },
   "jobs": [
-    { "id": "sample:1", "title": "Senior Full-Stack Engineer", "company": "Vercel", "location": "Remote (Global)", "remote": true, "url": "https://vercel.com/careers", "source": "Ashby", "posted": "2026-09-15T10:00:00Z", "tags": ["Engineering", "Node.js", "React"] },
-    { "id": "sample:2", "title": "Staff Backend Engineer", "company": "Stripe", "location": "Remote (US)", "remote": true, "url": "https://stripe.com/jobs", "source": "Greenhouse", "posted": "2026-09-15T09:00:00Z", "tags": ["Backend", "Go"] },
-    { "id": "sample:3", "title": "Senior Software Engineer, Platform", "company": "GitLab", "location": "Remote (Worldwide)", "remote": true, "url": "https://about.gitlab.com/jobs", "source": "Greenhouse", "posted": "2026-09-14T12:00:00Z", "tags": ["Platform", "Ruby"] },
-    { "id": "sample:4", "title": "Full Stack Developer (Node/React)", "company": "Spotify", "location": "Remote (EMEA)", "remote": true, "url": "https://www.lifeatspotify.com/jobs", "source": "Lever", "posted": "2026-09-14T08:00:00Z", "tags": ["Full Stack", "TypeScript"] },
-    { "id": "sample:5", "title": "Senior Node.js Engineer", "company": "Remote Co", "location": "Remote (Anywhere)", "remote": true, "url": "https://remotive.com", "source": "Remotive", "posted": "2026-09-13T15:00:00Z", "tags": ["Node.js", "AWS"] },
-    { "id": "sample:6", "title": "Lead Frontend Engineer", "company": "Linear", "location": "Remote (Global)", "remote": true, "url": "https://linear.app/careers", "source": "RemoteOK", "posted": "2026-09-13T11:00:00Z", "tags": ["Frontend", "React"] }
+    { "id": "sample:1", "title": "Senior Full-Stack Engineer", "company": "Vercel", "location": "Remote (Global)", "remote": true, "url": "https://vercel.com/careers", "source": "Ashby", "tier": "company", "posted": "2026-09-15T10:00:00Z", "tags": ["Engineering", "Node.js", "React"] },
+    { "id": "sample:2", "title": "Staff Backend Engineer", "company": "Stripe", "location": "Remote (US)", "remote": true, "url": "https://stripe.com/jobs", "source": "Greenhouse", "tier": "company", "posted": "2026-09-15T09:00:00Z", "tags": ["Backend", "Go"] },
+    { "id": "sample:3", "title": "Senior Software Engineer, Platform", "company": "GitLab", "location": "Remote (Worldwide)", "remote": true, "url": "https://about.gitlab.com/jobs", "source": "Greenhouse", "tier": "company", "posted": "2026-09-14T12:00:00Z", "tags": ["Platform", "Ruby"] },
+    { "id": "sample:4", "title": "Full Stack Developer (Node/React)", "company": "Kraken", "location": "Remote (EMEA)", "remote": true, "url": "https://jobs.lever.co/kraken", "source": "Lever", "tier": "company", "posted": "2026-09-14T08:00:00Z", "tags": ["Full Stack", "TypeScript"] },
+    { "id": "sample:5", "title": "Senior Node.js Engineer", "company": "Remote Co", "location": "Remote (Anywhere)", "remote": true, "url": "https://remotive.com", "source": "Remotive", "tier": "board", "posted": "2026-09-13T15:00:00Z", "tags": ["Node.js", "AWS"] },
+    { "id": "sample:6", "title": "Lead Frontend Engineer", "company": "Linear", "location": "Remote (Global)", "remote": true, "url": "https://linear.app/careers", "source": "RemoteOK", "tier": "board", "posted": "2026-09-13T11:00:00Z", "tags": ["Frontend", "React"] }
   ]
 }

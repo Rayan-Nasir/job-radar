@@ -24,7 +24,6 @@ async function run() {
   for (const c of companies.lever || []) tasks.push(settle(`lever/${c}`, S.lever(c)));
   for (const o of companies.ashby || []) tasks.push(settle(`ashby/${o}`, S.ashby(o)));
   for (const q of REMOTIVE_SEARCHES) tasks.push(settle(`remotive/${q}`, S.remotive(q)));
-  tasks.push(settle("arbeitnow", S.arbeitnow()));
   tasks.push(settle("remoteok", S.remoteok()));
   tasks.push(settle("adzuna", S.adzuna({
     appId: process.env.ADZUNA_APP_ID, appKey: process.env.ADZUNA_APP_KEY,
