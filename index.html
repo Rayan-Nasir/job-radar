@@ -428,7 +428,7 @@
     if(!CFG.TAILOR_URL){ note.hidden=false; note.textContent="AI tailoring isn't configured yet (add TAILOR_URL in config.js). Showing your text so you can still download it formatted."; LAST=fallbackParse(txt); renderResume(LAST); return; }
     note.hidden=false;note.textContent="Tailoring… (a few seconds)";$("#tailorBtn").disabled=true;
     fetch(CFG.TAILOR_URL,{method:"POST",headers:{"Content-Type":"application/json",...(CFG.SUPABASE_ANON_KEY?{"Authorization":"Bearer "+CFG.SUPABASE_ANON_KEY,"apikey":CFG.SUPABASE_ANON_KEY}:{})},body:JSON.stringify({resume:txt,target:target})})
-      .then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json();})
+      .then(function(r){return r.json().catch(function(){return {};}).then(function(d){if(!r.ok){var msg=(d&&d.error)?d.error:("HTTP "+r.status);var det=(d&&d.detail)?(" — "+(d.detail.error&&d.detail.error.message?d.detail.error.message:JSON.stringify(d.detail).slice(0,300))):"";throw new Error(msg+det);}return d;});})
       .then(function(d){LAST=d.resume||d;renderResume(LAST);note.hidden=true;})
       .catch(function(e){note.textContent="Tailoring failed ("+e.message+"). Check the function is deployed and the key is set. Your text is shown so you can still download it.";LAST=fallbackParse(txt);renderResume(LAST);})
       .finally(function(){$("#tailorBtn").disabled=false;});
